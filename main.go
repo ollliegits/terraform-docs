@@ -11,6 +11,7 @@ import (
 	markdown_document "github.com/segmentio/terraform-docs/internal/pkg/print/markdown/document"
 	markdown_table "github.com/segmentio/terraform-docs/internal/pkg/print/markdown/table"
 	"github.com/segmentio/terraform-docs/internal/pkg/print/pretty"
+	"github.com/segmentio/terraform-docs/internal/pkg/print/tfvars"
 	"github.com/segmentio/terraform-docs/internal/pkg/settings"
 )
 
@@ -18,7 +19,7 @@ var version = "dev"
 
 const usage = `
   Usage:
-    terraform-docs [--no-required] [--no-sort | --sort-inputs-by-required] [--with-aggregate-type-defaults] [json | markdown | md] [document | table] <path>...
+    terraform-docs [--no-required] [--no-sort | --sort-inputs-by-required] [--with-aggregate-type-defaults] [json | markdown | md | tfvars] [document | table] <path>...
     terraform-docs -h | --help
 
   Examples:
@@ -28,6 +29,9 @@ const usage = `
 
     # View inputs and outputs for variables.tf and outputs.tf only
     $ terraform-docs variables.tf outputs.tf
+
+    # Create terraform.tfvars file for a modules variables.tf
+    $ terraform-docs tfvars variables.tf > terraform.tfvars
 
     # Generate a JSON of inputs and outputs
     $ terraform-docs json ./my-module
@@ -63,8 +67,8 @@ const usage = `
 
 func main() {
 	parser := &docopt.Parser{
-		HelpHandler: docopt.PrintHelpAndExit,
-		OptionsFirst: true,
+		HelpHandler:   docopt.PrintHelpAndExit,
+		OptionsFirst:  true,
 		SkipHelpFlags: false,
 	}
 
@@ -108,6 +112,8 @@ func main() {
 		}
 	case args["json"].(bool):
 		out, err = json.Print(document, printSettings)
+	case args["tfvars"].(bool):
+		out, err = tfvars.Print(document, printSettings)
 	default:
 		out, err = pretty.Print(document, printSettings)
 	}
