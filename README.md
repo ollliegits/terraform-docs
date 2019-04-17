@@ -42,6 +42,12 @@ Show help information:
 terraform-docs --help
 ```
 
+Generate a terraform.tfvars file from a variables.tf file:
+
+```bash
+terraform-docs [--sort-inputs-by-required] tfvars variables.tf > terraform.tfvars
+```
+
 Generate JSON from the Terraform configuration in folder `./examples`:
 
 ```bash
