@@ -3,10 +3,10 @@ package table_test
 import (
 	"testing"
 
-	"github.com/segmentio/terraform-docs/internal/pkg/doc"
-	"github.com/segmentio/terraform-docs/internal/pkg/print"
-	"github.com/segmentio/terraform-docs/internal/pkg/print/markdown/table"
-	"github.com/segmentio/terraform-docs/internal/pkg/settings"
+	"github.com/ollliegits/terraform-docs/internal/pkg/doc"
+	"github.com/ollliegits/terraform-docs/internal/pkg/print"
+	"github.com/ollliegits/terraform-docs/internal/pkg/print/markdown/table"
+	"github.com/ollliegits/terraform-docs/internal/pkg/settings"
 	"github.com/stretchr/testify/assert"
 )
 

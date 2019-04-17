@@ -5,14 +5,14 @@ import (
 	"log"
 
 	"github.com/docopt/docopt.go"
-	"github.com/segmentio/terraform-docs/internal/pkg/doc"
-	"github.com/segmentio/terraform-docs/internal/pkg/print"
-	"github.com/segmentio/terraform-docs/internal/pkg/print/json"
-	markdown_document "github.com/segmentio/terraform-docs/internal/pkg/print/markdown/document"
-	markdown_table "github.com/segmentio/terraform-docs/internal/pkg/print/markdown/table"
-	"github.com/segmentio/terraform-docs/internal/pkg/print/pretty"
-	"github.com/segmentio/terraform-docs/internal/pkg/print/tfvars"
-	"github.com/segmentio/terraform-docs/internal/pkg/settings"
+	"github.com/ollliegits/terraform-docs/internal/pkg/doc"
+	"github.com/ollliegits/terraform-docs/internal/pkg/print"
+	"github.com/ollliegits/terraform-docs/internal/pkg/print/json"
+	markdown_document "github.com/ollliegits/terraform-docs/internal/pkg/print/markdown/document"
+	markdown_table "github.com/ollliegits/terraform-docs/internal/pkg/print/markdown/table"
+	"github.com/ollliegits/terraform-docs/internal/pkg/print/pretty"
+	"github.com/ollliegits/terraform-docs/internal/pkg/print/tfvars"
+	"github.com/ollliegits/terraform-docs/internal/pkg/settings"
 )
 
 var version = "dev"

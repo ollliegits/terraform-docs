@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/segmentio/terraform-docs/internal/pkg/doc"
-	"github.com/segmentio/terraform-docs/internal/pkg/print"
-	"github.com/segmentio/terraform-docs/internal/pkg/settings"
+	"github.com/ollliegits/terraform-docs/internal/pkg/doc"
+	"github.com/ollliegits/terraform-docs/internal/pkg/print"
+	"github.com/ollliegits/terraform-docs/internal/pkg/settings"
 )
 
 // Print prints a pretty document.

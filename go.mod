@@ -1,4 +1,4 @@
-module github.com/segmentio/terraform-docs
+module github.com/ollliegits/terraform-docs
 
 require (
 	github.com/buger/jsonparser v0.0.0-20180910192245-6acdf747ae99
