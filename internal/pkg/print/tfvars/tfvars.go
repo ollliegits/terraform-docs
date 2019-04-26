@@ -42,16 +42,40 @@ func printInputs(buffer *bytes.Buffer, inputs []doc.Input, settings settings.Set
 	buffer.WriteString("\n")
 
 	for _, input := range inputs {
-		var format = "%s=\"%s\"\n# %s\n\n"
+		var format = "%s = "
+
 		if input.HasDefault() {
-			format = "# %s=%s\n# %s\n\n"
+			format = "# %s = %s"
+			buffer.WriteString(
+				fmt.Sprintf(
+					format,
+					input.Name,
+					getInputDefaultValue(&input, settings)))
+		} else {
+			switch {
+			case input.Type == "list":
+				format += "[]"
+			case input.Type == "map":
+				format += "{}"
+			default:
+				format += "\"\""
+			}
+
+			buffer.WriteString(
+				fmt.Sprintf(
+					format,
+					input.Name))
 		}
-		buffer.WriteString(
-			fmt.Sprintf(
-				format,
-				input.Name,
-				getInputDefaultValue(&input, settings),
-				input.Description))
+
+		if input.HasDescription() {
+			format = "\n# %s"
+			buffer.WriteString(
+				fmt.Sprintf(
+					format,
+					input.Description))
+		}
+		// add blank line below
+		buffer.WriteString("\n\n")
 	}
 
 	buffer.WriteString("\n")
