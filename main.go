@@ -31,7 +31,7 @@ const usage = `
     $ terraform-docs variables.tf outputs.tf
 
     # Create terraform.tfvars file for a modules variables.tf
-    $ terraform-docs tfvars variables.tf > terraform.tfvars
+    $ terraform-docs --no-sort --with-aggregate-type-defaults tfvars variables.tf > terraform.tfvars
 
     # Generate a JSON of inputs and outputs
     $ terraform-docs json ./my-module
